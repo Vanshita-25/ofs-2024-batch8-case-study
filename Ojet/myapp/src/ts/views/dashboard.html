@@ -1,0 +1,108 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h5>Input Text Demo</h5>
+  <div>
+  <oj-c-input-text
+              id="text-input"
+              value="{{firstName}}"
+              label-hint="Enter first name"
+              label-edge="inside">
+  </oj-c-input-text>
+  <h4>Hey! <oj-bind-text value="[[firstName]]"></oj-bind-text></h4>
+</div>
+<h4>Trying Form Layouts</h4>
+  <oj-c-form-layout
+    id="myform"
+    label-edge="top"
+    label-start-width="calc(max(10vw,7rem))"
+    columns="2"
+    user-assistance-density="compact"
+    full-width="false"
+    max-columns="4"
+    direction="row"
+    label-wrapping="truncate">
+    <oj-c-input-text
+      id="name"
+      label-hint="Enter Name"
+      placeholder='Enter name'
+      value="{{name}}"
+      required="true"></oj-c-input-text>
+      <div>Hi, <oj-bind-text value="[[name]]"></oj-bind-text></div>
+    <oj-c-input-password
+      id="password"
+      label-hint="Enter password"
+      placeholder='Enter password'
+      value="{{password}}"
+      required="true"></oj-c-input-password>
+      <div>Hi, Your password is<oj-bind-text value="[[password]]"></oj-bind-text>
+      <oj-c-input-number
+      id="salary"
+      label-hint="Enter salary"
+      min="0"
+      placeholder='Enter salary'
+      value="{{salary}}"
+      required="true"></oj-c-input-number>
+      <div>Hi, You earn $<oj-bind-text value="[[salary]]"></oj-bind-text>
+      <oj-c-select-multiple
+      id="selectMultiple"
+      label-hint="Select sources of income"
+      value="{{source}}"
+      required="true"
+      data="[[sourcesOfIncome]]"
+      item-text="label"></oj-c-select-multiple>
+      </oj-c-form-layout>
+
+      <div>
+        <h2>Trying buttons</h2>
+        <oj-c-button disabled="true" id="dis_button1" label="Disabled"></oj-c-button>
+        <oj-c-button id="icon_button2" label="Start Slot">
+          <span slot="startIcon" class="oj-ux-ico-avatar"></span>
+        </oj-c-button>
+        <oj-c-button id="chroming_button1" chroming="borderless" label="Borderless"></oj-c-button>
+      </div>
+      <div>
+        <h4>Trying Messages</h4>
+        <oj-c-message-banner
+              data="[[customDetailMessages]]"
+              detail-template-value="actions"
+              on-oj-close="[[closeCustomDetailMessage]]">
+              <template slot="actions">
+                <!-- The detail text area -->
+                <div class="oj-flex-item">
+                  <span><oj-bind-text value="[[$current.data.detail]]"></oj-bind-text></span>
+                </div>
+                <!-- Detail action items -->
+                <div class="oj-flex oj-flex-item oj-sm-flex-items-initial oj-sm-padding-2x-top">
+                  <!-- First action item -->
+                  <div class="oj-flex-item oj-sm-margin-5x-end">
+                    <a :href="[[$current.data.actions[0].link]]"
+                        class="
+                          oj-link-standalone
+                          oj-link-subtle-primary
+                          oj-typography-body-sm
+                          oj-typography-semi-bold
+                        ">
+                      <oj-bind-text value="[[$current.data.actions[0].title]]"></oj-bind-text>
+                    </a>
+                  </div>
+                  <!-- Second action item -->
+                  <div class="oj-flex-item oj-sm-margin-5x-end">
+                    <a :href="[[$current.data.actions[1].link]]"
+                        class="
+                          oj-link-standalone
+                          oj-link-subtle-primary
+                          oj-typography-body-sm
+                          oj-typography-semi-bold
+                        ">
+                      <oj-bind-text value="[[$current.data.actions[1].title]]"></oj-bind-text>
+                    </a>
+                  </div>
+                </div>
+              </template>
+            </oj-c-message-banner>
+      </div>
+</div>
