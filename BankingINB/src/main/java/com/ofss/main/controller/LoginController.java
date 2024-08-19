@@ -26,8 +26,8 @@ public class LoginController {
 		return loginService.addNewLogin(login);
 	}
 	
-	@GetMapping("login")
-	public int validateLogin(@RequestBody Customer Customer) {
-		return loginService.validateLogin(Customer);
+	@PostMapping("logins")
+	public int validateLogin(@RequestBody Login login) {
+		return loginService.validateLogin(login);
 	}
 }

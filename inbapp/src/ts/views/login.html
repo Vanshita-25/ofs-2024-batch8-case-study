@@ -1,0 +1,25 @@
+<div class="oj-hybrid-padding">
+    <div>
+        <oj-c-form-layout
+        id="formLayoutOptions"
+        max-columns="2"
+        columns = "2"
+        direction="row"
+        user-assistance-density="compact"
+        label-edge = "inside">
+        <oj-c-input-text
+        id="loginId"
+        label-hint="Enter Login ID"
+        value="{{loginId}}"
+        required="true"></oj-c-input-text>
+        <oj-c-input-password
+        id="password"
+        label-hint="Enter Password"
+        value="{{password}}"
+        required="[[true]]"></oj-c-input-password>
+        </oj-c-form-layout>
+    </div>
+    <div style="margin: 10px 0px 10px 0px;">
+        <oj-c-button id="login" on-oj-action="[[loginButtonClick]]" label="Login" chroming="callToAction"></oj-c-button>
+    </div>
+</div>

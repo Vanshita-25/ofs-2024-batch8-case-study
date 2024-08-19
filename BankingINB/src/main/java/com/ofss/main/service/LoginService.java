@@ -6,6 +6,6 @@ import com.ofss.main.domain.Login;
 public interface LoginService {
 	Login addNewLogin(Login login);
 
-	int validateLogin(Customer customer);
+	int validateLogin(Login Login);
 
 }

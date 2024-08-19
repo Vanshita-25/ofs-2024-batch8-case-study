@@ -1,0 +1,77 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Register Now</h1>
+  <div>
+  <oj-c-form-layout
+    id="formLayoutOptions"
+    max-columns="3"
+    direction="row"
+    user-assistance-density="compact"
+    label-edge = "inside">
+    <oj-c-input-text
+    id="firstName"
+    label-hint="Enter First Name"
+    placeholder='Enter First Name'
+    value="{{firstName}}"
+    required="true"></oj-c-input-text>
+    <oj-c-input-text
+    id="lastName"
+    label-hint="Enter Last Name"
+    value="{{lastName}}"
+    required="true"></oj-c-input-text>
+    <oj-c-input-text
+    id="address1"
+    label-hint="Enter Address 1"
+    value="{{address1}}"
+    required="true"></oj-c-input-text>
+    <oj-c-input-text
+    id="address2"
+    label-hint="Enter Address 2"
+    value="{{address2}}"
+    required="false"></oj-c-input-text>
+    <oj-c-input-text
+    id="address3"
+    label-hint="Enter Address 3"
+    value="{{address3}}"
+    required="false"></oj-c-input-text>
+    <oj-c-input-text
+    id="city"
+    label-hint="Enter City"
+    value="{{city}}"
+    required="true"></oj-c-input-text>
+    <oj-c-input-text
+    id="state"
+    label-hint="Enter State"
+    value="{{state}}"
+    required="true"></oj-c-input-text>
+    <oj-c-input-number
+    id="zip"
+    label-hint="Enter Zip"
+    min="0"
+    value="{{zip}}"
+    required="true"></oj-c-input-number>
+    <oj-c-input-text
+    id="email"
+    label-hint="Enter Email"
+    value="{{email}}"
+    required="true"></oj-c-input-text>
+    <oj-c-input-password
+    id="password"
+    label-hint="Enter Password"
+    value="{{password}}"
+    required="[[true]]"></oj-c-input-password>
+  </oj-c-form-layout>
+<div id="buttonContainer" style="margin:10px 0px 10px 0px;">
+  <oj-c-button id="submit" on-oj-action="[[submitButtonClick]]"
+  disabled = "[[firstName()==null || lastName()==null || zip()== null ||address1() ==null || email() == null || city() == null || state() ==null || password == null ]]"
+   label="Submit" chroming="callToAction"></oj-c-button>
+  <h4>Hi  <oj-bind-text value="[[firstName]]"></oj-bind-text></h4>
+  <p>Your customer id for login is: <oj-bind-text value="[[customerId]]"></oj-bind-text></p>
+  <oj-c-button id="loginhref" on-oj-action="[[loginHref]]" label="Login Now" chroming="callToAction"></oj-c-button>
+</div>
+  </div>
+</div>

@@ -21,9 +21,9 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	@Override
-	public int validateLogin(Customer customer) {
-		Login login = customer.getLogin();
+	public int validateLogin(Login login) {
 		Optional<Login> optionalLoginFromDB = loginRepository.findById(login.getLoginId());
+		System.out.println(optionalLoginFromDB);
 		if (optionalLoginFromDB.isPresent()) {
 			System.out.println(optionalLoginFromDB.get());
 			if (login.getLoginId() == optionalLoginFromDB.get().getLoginId()
