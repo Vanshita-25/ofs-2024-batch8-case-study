@@ -1,5 +1,7 @@
 package com.ofss.main.domain;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -42,6 +45,10 @@ public class Customer {
     private String email;
 	@Column(name="approval_status")
     private String approvalStatus;
+	
+//	@OneToMany(cascade =CascadeType.ALL,mappedBy = "bank_customer")
+//	@Column(name="account_list")
+//	private List<Account> accountList;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "login_id")

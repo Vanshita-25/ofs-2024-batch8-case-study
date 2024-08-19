@@ -6,40 +6,35 @@
  * @ignore
  */
 import * as AccUtils from "../accUtils";
+import * as ko from 'knockout';
+import { RESTDataProvider } from 'ojs/ojrestdataprovider';
+import 'ojs/ojknockout';
+import 'ojs/ojtable';
+
+type D = { "id": number; "name": string; "username" : string ;};
+type K = D['id'];
+
 class CustomersViewModel {
 
-  constructor() {
+  readonly keyAttributes = 'id';
+  readonly dataprovider: RESTDataProvider<K, D>;
+  url = "https://jsonplaceholder.typicode.com/users";
 
+  constructor(){
+    this.dataprovider = new RESTDataProvider({
+      keyAttributes : this.keyAttributes,
+      url : this.url,
+      transforms : {
+        fetchFirst : {
+          request : async (options) => {
+            const url = new URL(options.url);
+            return new Request(url.href);
+          },
+          response : async({body}) => {
+            let data = body;
+            return {data};
+          }}} })
   }
 
-  /**
-   * Optional ViewModel method invoked after the View is inserted into the
-   * document DOM.  The application can put logic that requires the DOM being
-   * attached here.
-   * This method might be called multiple times - after the View is created
-   * and inserted into the DOM and after the View is reconnected
-   * after being disconnected.
-   */
-  connected(): void {
-    AccUtils.announce("Customers page loaded.");
-    document.title = "Customers";
-    // implement further logic if needed
-  }
-
-  /**
-   * Optional ViewModel method invoked after the View is disconnected from the DOM.
-   */
-  disconnected(): void {
-    // implement if needed
-  }
-
-  /**
-   * Optional ViewModel method invoked after transition to the new View is complete.
-   * That includes any possible animation between the old and the new View.
-   */
-  transitionCompleted(): void {
-    // implement if needed
-  }
 }
-
 export = CustomersViewModel;

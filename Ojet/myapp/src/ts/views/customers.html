@@ -6,6 +6,16 @@
 <div class="oj-hybrid-padding">
   <h1>Customers Content Area</h1>
   <div>
-      To change the content of this section, you will make edits to the customers.html file located in the /ts/views folder.
+    <oj-table
+    id="table"
+    aria-label="Customer Table"
+    accessibility.row-header="custName"
+    data="[[dataprovider]]"
+    columns-default='{"sortable": "disabled"}'
+    columns='[{"headerText": "Id", "field": "id", "id": "id"},
+              {"headerText": "Name", "field": "name", "id": "name"},
+              {"headerText": "Username", "field": "username", "id": "username"},
+              {"headerText": "Email", "field": "email", "id": "email"}]'
+    class="demo-table-container"></oj-table>
   </div>
 </div>
